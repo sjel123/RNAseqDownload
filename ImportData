@@ -3,3 +3,7 @@ authUrl='https://logonv2.pfizer.com/access/oblix/apps/webgate/bin/webgate.dll'
 cookie=`curl -i -d 'username=<your login id>&password=<your password>' $authUrl | grep 'ObSSOCookie' | cut -d ' ' -f 2`
 curl -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/api/v1/MatrixReport/2129 > 2129.tar.gz
 curl -O -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/quickrnaseq/2128/Results/Summary/Gene-count-table.txt
+curl -O -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/quickrnaseq/2128/Results/Summary/sample.annotation.txt
+curl -O -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/quickrnaseq/2128/Results/Summary/star-mapping-summary.txt
+curl -O -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/quickrnaseq/2128/Results/Summary/fc-counting-summary.txt
+curl -O -k -H "Cookie:$cookie" https://rnaseq.pfizer.com/quickrnaseq/2128/Results/Summary/RNASeq-snp-corr.txt
